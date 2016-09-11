@@ -53,7 +53,23 @@
                         <phase>compile</phase>
                     </execution>
                 </executions>
+				<configuration>
+					<runTarget>http://localhost:8888</runTarget>
+				</configuration>
             </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- version is important to have java annotation processing correctly handled -->
+				<version>3.3</version><!--$NO-MVN-MAN-VER$-->
+				<configuration>
+					<compilerArgument>-parameters</compilerArgument>
+					<testCompilerArgument>-parameters</testCompilerArgument>
+					<useIncrementalCompilation>false</useIncrementalCompilation>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
         </plugins>
         <pluginManagement>
         	<plugins>
